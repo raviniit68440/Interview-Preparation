@@ -1,0 +1,95 @@
+Introduce yourself
+How you will create Docker File
+Terraform Modules
+how terrfaorm modules communicates with each other
+Kubernetes Deployment Strategies
+How you will integrate Github and one more tool with Kubenetes
+How you can make CI/CD pipeline light weight
+Which is better Amazon RDBMS or Mongo DB(Nosql)
+How you will scale up and scale down traffic
+
+
+
+Answers:
+
+Got it — I’ll convert everything into **clean, confident, memorise-ready answers** you can directly speak in an interview. Keep them natural, not robotic.
+
+---
+
+# 1. Introduce Yourself
+
+> “Hi, my name is [Your Name]. I have a strong interest in DevOps and cloud technologies. I’ve worked with tools like Docker, Kubernetes, and Terraform to automate deployments and manage infrastructure.
+> I have experience in building CI/CD pipelines, containerizing applications, and working with cloud environments.
+> I enjoy solving problems related to scalability and system reliability.
+> Currently, I’m looking for an opportunity where I can apply my skills and also learn more about large-scale distributed systems.”
+
+---
+
+# 2. How Do You Create a Dockerfile?
+
+> “A Dockerfile is used to create a container image with all the dependencies required to run an application.
+> I start with a base image using the FROM command, then set a working directory using WORKDIR. After that, I copy the application files using COPY and install dependencies using RUN.
+> I expose the required port using EXPOSE and define the startup command using CMD.
+> This ensures that the application runs consistently across all environments.”
+
+---
+
+# 3. What Are Terraform Modules?
+
+> “Terraform modules are reusable blocks of infrastructure code. Instead of writing the same configuration multiple times, we define it once as a module and reuse it wherever needed.
+> Each module contains resources, input variables, and outputs.
+> This helps in maintaining clean, scalable, and standardized infrastructure code.”
+
+---
+
+# 4. How Do Terraform Modules Communicate?
+
+> “Terraform modules communicate using input variables and output values.
+> One module exposes certain values using outputs, and another module can consume those values as input variables.
+> This allows us to create dependencies and pass data between different parts of the infrastructure in a structured way.”
+
+---
+
+# 5. Kubernetes Deployment Strategies
+
+> “Kubernetes supports multiple deployment strategies. The default is Rolling Update, where pods are gradually replaced without downtime.
+> Another is Recreate, where old pods are stopped before new ones are started, which causes downtime.
+> Blue-Green deployment uses two environments and switches traffic between them instantly.
+> Canary deployment releases changes to a small set of users first to reduce risk.
+> The choice depends on the level of risk and availability requirements.”
+
+---
+
+# 6. How Do You Integrate GitHub with Kubernetes?
+
+> “Integration is typically done using CI/CD tools like GitHub Actions or Jenkins, and GitOps tools like Argo CD.
+> The workflow is: code is pushed to GitHub, the CI tool builds a Docker image and pushes it to a container registry, and then Kubernetes pulls the image and deploys it.
+> In GitOps, tools like Argo CD continuously monitor the Git repository and automatically sync changes to the cluster.”
+
+---
+
+# 7. How Do You Make a CI/CD Pipeline Lightweight?
+
+> “To make a CI/CD pipeline lightweight, I focus on reducing build time and resource usage.
+> I use caching to avoid reinstalling dependencies, run jobs in parallel, and use smaller base images like Alpine.
+> I also avoid unnecessary builds by triggering pipelines only when relevant changes occur.
+> This improves speed and efficiency.”
+
+---
+
+# 8. Which Is Better: Amazon RDS or MongoDB?
+
+> “It depends on the use case. Amazon RDS is better for structured data, transactions, and applications requiring strong consistency, like banking systems.
+> MongoDB is better for unstructured or semi-structured data, where flexibility and scalability are important.
+> So, RDS is preferred for relational use cases, while MongoDB is suitable for high-scale and flexible schema applications.”
+
+---
+
+# 9. How Do You Scale Up and Scale Down Traffic?
+
+> “Scaling can be done vertically or horizontally. Vertical scaling means increasing CPU or memory, while horizontal scaling means adding more instances.
+> In real-world systems, we use auto-scaling. For example, in Kubernetes, we use Horizontal Pod Autoscaler to increase or decrease pods based on CPU or memory usage.
+> Similarly, cloud platforms like Amazon Web Services provide auto-scaling groups.
+> This ensures the system handles high traffic efficiently and reduces cost during low traffic.”
+
+---

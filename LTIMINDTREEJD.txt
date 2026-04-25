@@ -1,0 +1,54 @@
+LTIMINDTREE JD:
+
+Here’s a clean, structured summary of the requirements:
+
+---
+
+## **Core Technical Requirements**
+
+* Strong understanding of **microservices architecture** and deployment ecosystems
+* Minimum **3 years of Unix shell scripting** experience
+* Solid knowledge of **SDLC and software engineering processes**
+* Experience with **configuration management & CI/CD tools** (ArgoCD, Docker, Kubernetes)
+* Hands-on with **monitoring tools** (Dynatrace, CloudWatch, Splunk implementation from scratch)
+* Experience working with **Istio service mesh**
+* Knowledge of **cloud platforms** (Azure, AWS)
+* Familiarity with **RBAC, networking, firewalls**
+* Experience with **DevOps tools** (Git, GitLab)
+* Hands-on with **Fortify, Sonatype Nexus, Maven, Harbor**
+* Good exposure to **Helm charts**
+
+---
+
+## **Secondary / Preferred Skills**
+
+* Additional **AWS cloud knowledge**
+* Strong **written communication skills** (professional tone)
+* Understanding of **IT services/consulting industry**
+* Team collaboration mindset
+* Basic programming exposure (especially shell scripting)
+* Exposure to **BFS (Banking & Financial Services) domain**
+
+---
+
+## **Key Responsibilities**
+
+* Define and manage **DevOps processes** (development, testing, release, support)
+* Build and maintain **CI/CD pipelines** (especially GitLab from scratch)
+* Implement **Git branching strategies & release management**
+* Drive **automation and continuous improvement**
+* Handle **end-to-end DevOps lifecycle**
+* Collaborate with **business & IT stakeholders**
+* Mentor and guide team members
+* Evaluate and adopt **new tools and technologies**
+* Document and share **processes and best practices**
+
+---
+
+## **Mandatory Skill**
+
+* **Azure DevOps**
+
+---
+
+If you want, I can also convert this into a resume-ready version or highlight the most important skills for interviews.
