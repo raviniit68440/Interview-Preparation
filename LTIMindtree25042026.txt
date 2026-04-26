@@ -7,7 +7,7 @@ How you will integrate Github and one more tool with Kubenetes
 How you can make CI/CD pipeline light weight
 Which is better Amazon RDBMS or Mongo DB(Nosql)
 How you will scale up and scale down traffic
-
+Where do yu keep the confidential information usch as password and all on cloud?
 
 
 Answers:
