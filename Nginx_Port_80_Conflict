@@ -1,0 +1,216 @@
+# Nginx Port 80 Conflict Troubleshooting Guide
+
+## 📌 Objective
+
+This document outlines the step-by-step troubleshooting process performed to identify and resolve an issue where Nginx failed to start properly due to a port 80 conflict.
+
+---
+
+## 🛠️ Environment Setup
+
+### 1. Installed Docker
+
+```bash
+sudo apt install docker.io
+docker -v
+```
+
+### 2. Cloned Application Repository
+
+```bash
+git clone https://github.com/devopsinsiders/elearn-frontend.git
+ls
+```
+
+---
+
+## 🌐 Nginx Installation & Initial Setup
+
+### 3. Installed Nginx
+
+```bash
+sudo apt update && sudo apt install nginx -y
+```
+
+### 4. Attempted to Stop and Check Nginx Service
+
+```bash
+systemctl stop nginx
+sudo systemctl stop nginx
+sudo systemctl status nginx
+```
+
+---
+
+## ⚠️ Manual Nginx Execution (Root Cause Begins)
+
+### 5. Started Nginx Manually
+
+```bash
+/usr/sbin/nginx
+sudo /usr/sbin/nginx
+sudo nginx
+```
+
+📌 This created Nginx processes outside of systemd control.
+
+---
+
+## 🔍 Issue Identification: Port 80 Already in Use
+
+### 6. Checked Port Usage
+
+```bash
+sudo lsof -i :80
+```
+
+### 7. Installed Network Tools & Verified Again
+
+```bash
+sudo apt install net-tools
+sudo netstat -tulnp | grep :80
+```
+
+📌 Observation:
+
+* Multiple Nginx processes were already listening on port 80.
+
+---
+
+## 🔁 Service Management Attempts
+
+### 8. Restarted Nginx Service Multiple Times
+
+```bash
+sudo systemctl start nginx
+sudo systemctl restart nginx
+sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl status nginx
+```
+
+📌 Issue persisted due to unmanaged processes still running.
+
+---
+
+## 🔎 Process Investigation
+
+### 9. Listed Running Processes
+
+```bash
+ps -ef
+ps -ef | grep 'nginx'
+```
+
+📌 Identified multiple Nginx processes (master + workers).
+
+---
+
+## ❌ Initial Attempt to Kill Process
+
+### 10. Killed Specific Process
+
+```bash
+kill -9 3580
+sudo kill -9 3580
+```
+
+📌 Result:
+
+* Partial success; worker processes or new processes still held port 80.
+
+---
+
+## ✅ Final Resolution
+
+### 11. Force-Killed All Processes Using Port 80
+
+```bash
+sudo fuser -k 80/tcp
+```
+
+📌 This terminated all processes bound to port 80.
+
+---
+
+### 12. Restarted Nginx Cleanly
+
+```bash
+sudo systemctl start nginx
+sudo systemctl status nginx
+```
+
+✅ Nginx started successfully
+✅ Port 80 was free and correctly bound
+✅ Service is now managed by systemd
+
+---
+
+## 🧠 Root Cause Analysis
+
+* Nginx was started manually using:
+
+  ```bash
+  sudo nginx
+  ```
+* This bypassed systemd, causing:
+
+  * Multiple unmanaged processes
+  * Port 80 conflicts
+  * systemctl unable to properly control service
+
+---
+
+## 💡 Key Learnings
+
+* Avoid running Nginx manually (`nginx` command)
+* Always use systemd for service management:
+
+  ```bash
+  sudo systemctl start nginx
+  sudo systemctl stop nginx
+  sudo systemctl restart nginx
+  ```
+* Use the following commands for troubleshooting:
+
+  * Check port usage:
+
+    ```bash
+    sudo lsof -i :80
+    ```
+  * Check processes:
+
+    ```bash
+    ps -ef | grep nginx
+    ```
+  * Kill all processes on a port:
+
+    ```bash
+    sudo fuser -k 80/tcp
+    ```
+
+---
+
+## 🚀 Quick Fix Command (Future Reference)
+
+```bash
+sudo fuser -k 80/tcp
+sudo systemctl start nginx
+```
+
+---
+
+## 📄 Output Saved
+
+```bash
+history > nginx.txt
+```
+
+📌 Command history exported for reference and documentation.
+
+---
+
+## ✅ Conclusion
+
+The issue was successfully resolved by identifying and terminating unmanaged Nginx processes occupying port 80. Proper service management using systemctl restored normal functionality.
+
